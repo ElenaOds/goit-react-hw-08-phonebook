@@ -29,7 +29,7 @@ return (
       <List>
       {getFilteredContacts().map((contact, id) => (
      <ListItem key={id}>
-       {contact.name}: {contact.phone}
+       {contact.name}: {contact.number}
        <Button onClick={() => dispatch(contactsOperations.deleteContact(contact.id))}>
         Delete</Button>
      </ListItem>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import {Form, Label, Input, Button} from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,10 +31,10 @@ import { contactsOperations, contactsSelectors } from '../../redux/contacts';
       e.preventDefault(); 
       const newContact = { 
         name, 
-        phone: number,
+        number,
       };
       const existingContact  = contacts.find(
-        contact => contact.name === name || contact.phone === number
+        contact => contact.name === name || contact.number === number
       );
       if(existingContact) {
         alert(`${name} is already in contacts.`);

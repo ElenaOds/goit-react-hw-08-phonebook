@@ -1,41 +1,56 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
-  const { data } = await axios.get(
-    'https://63e53f6f8e1ed4ccf6f0d5a3.mockapi.io/contacts'
-  );
-  return data;
-});
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+export const fetchContacts = createAsyncThunk(
+  'contacts/fetchAll',
+  async (_, thunkAPI) => {
+      try {
+      const response = await axios.get('/contacts');
+          return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const addContact = createAsyncThunk(
-    'contacts/addContact',
-    async (newContact, thunkAPI) => {
+  'contacts/addContact',
+  async (contact, thunkAPI) => {
       try {
-        const response = await axios.post(
-          'https://63e53f6f8e1ed4ccf6f0d5a3.mockapi.io/contacts',
-          newContact
-        );
-        return response.data;
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error);
-      }
+          const response = await axios.post('/contacts', contact);
+      return response.data;
+      } catch (e) {
+          console.log("blad: ", e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
-  );
+  }
+);
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(
-        `https://63e53f6f8e1ed4ccf6f0d5a3.mockapi.io/contacts/${contactId}`
-      );
-     
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      const response = await axios.delete(`/contacts/${contactId}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
+// export const toggleCompleted = createAsyncThunk(
+//   'contacts/toggleCompleted',
+//   async (contact, thunkAPI) => {
+//     try {
+//       const response = await axios.put(`/contacts/${contact.id}`, {
+//         completed: !contact.completed,
+//       });
+//       return response.data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
 
