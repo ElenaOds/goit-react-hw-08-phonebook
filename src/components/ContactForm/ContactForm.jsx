@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import {Form, Label, Input, Button} from './ContactForm.styled';
+import {Form, Label, Input} from './ContactForm.styled';
+import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
@@ -75,7 +76,7 @@ import { getContacts } from 'redux/contacts/selectors';
             value={number}
             onChange={handleChange}
           />
-          <Button type="submit">
+          <Button variant="contained" type="submit">
             Add contact
           </Button>
         </Form>

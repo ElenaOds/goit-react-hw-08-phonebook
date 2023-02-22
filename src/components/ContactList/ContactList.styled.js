@@ -8,6 +8,7 @@ align-items: center;
 
 export const ListItem = styled.li`
 margin-bottom: 20px;
+list-style: none;
 `;
 
 export const Button = styled.button`
@@ -23,9 +24,10 @@ box-shadow: 3px 6px 20px rgba(0.12, 0.12, 0.12, 0.12),
 border-radius: 5px;
 border: inherit;
 cursor: pointer;
+
 &:focus,
 &:hover {
-    border: 3px solid #89CFF0;
+    border: 3px solid #1976d2;
     outline: inherit;
 }
 `;
