@@ -1,17 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilter } from 'redux/contacts/selectors';
+import { setFilter } from 'redux/contacts/filterSlice';
 import {Box, Label, Input} from './Filter.styled';
-import { filterContact } from '../../redux/filterSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { contactsSelectors } from '../../redux/contacts';
-
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(contactsSelectors.setFilter);
-
+  const filter = useSelector(getFilter);
 
   const handleChange = e => {
     const { value } = e.target;
-    dispatch(filterContact(value));
+    dispatch(setFilter(value));
   }; 
 
   return (
@@ -28,4 +26,3 @@ export const Filter = () => {
   </Box>
   )
 }
-  

@@ -23,8 +23,6 @@ box-shadow: 3px 6px 20px rgba(0.12, 0.12, 0.12, 0.12),
 border-radius: 5px;
 border: inherit;
 cursor: pointer;
-
-
 &:focus,
 &:hover {
     border: 3px solid #89CFF0;

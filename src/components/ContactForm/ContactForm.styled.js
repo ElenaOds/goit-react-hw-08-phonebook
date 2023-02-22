@@ -20,14 +20,12 @@ export const Label = styled.label`
 export const Input = styled.input`
   display: block;
   margin-bottom: 20px;
-
   padding: 10px;
   width: 30%;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
   font-size: 15px;
-
   &:focus,
   &:hover {
    border: 3px solid #89CFF0;
@@ -47,7 +45,6 @@ border-radius: 5px;
 border: inherit;
 cursor: pointer;
 text-transform: capitalize;
-
 &:focus,
 &:hover {
     border: 3px solid #89CFF0;

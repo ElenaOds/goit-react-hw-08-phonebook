@@ -5,7 +5,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 text-align: left;
-
 `;
 
 export const Label = styled.label`
@@ -25,8 +24,6 @@ export const Input = styled.input`
   border-radius: 4px;
   cursor: pointer;
   font-size: 15px;
-
-
   &:focus,
   &:hover {
    border: 3px solid #89CFF0;

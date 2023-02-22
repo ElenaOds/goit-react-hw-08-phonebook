@@ -1,4 +1,4 @@
-import {StyledLink} from './AuthNav.styled';
+import { StyledLink }  from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (
